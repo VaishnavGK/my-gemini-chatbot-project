@@ -37,14 +37,20 @@ if "chat_history" not in st.session_state:
 model=get_gemini_model()
 
 for message in st.session_state.chat_history:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+    if message["role"]=="user":
+        avatar="👤" 
+        with st.chat_message(message["role"],avatar=avatar):
+            st.markdown(message["content"])
+    else:
+        with st.chat_message("assistant"):
+            st.markdown(message["content"])
+    
 
 user_prompt=st.chat_input("Ask me anything...")
 
 if user_prompt:
     st.session_state.chat_history.append({"role":"user","content":user_prompt})
-    with st.chat_message("user", avatar="👤"):
+    with st.chat_message("user",avatar="👤"):
         st.markdown(user_prompt)
     
 
