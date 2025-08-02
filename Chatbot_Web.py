@@ -2,15 +2,17 @@ import streamlit as st
 import google.generativeai as genai
 import os
 from dotenv import load_dotenv
-
-load_dotenv() 
-
-st.set_page_config(page_title="My Gemini Bot",page_icon="🤖",layout="centered")
+load_dotenv()
 
 try:
-    genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-except AttributeError:
-    st.warning("API key not configured.Please set your GEMINI_API_KEY in the .env file.",icon="⚠️")
+    api_key=st.secrets["GEMINI_API_KEY"]
+except (KeyError,FileNotFoundError):
+    api_key=os.getenv("GEMINI_API_KEY")
+
+if api_key:
+    genai.configure(api_key=api_key)
+else:
+    st.error("API key not found. Please set it in Streamlit secrets or in a local .env file.")
 
 
 
