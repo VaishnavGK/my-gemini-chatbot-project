@@ -24,13 +24,16 @@ Follow these steps to run the project locally.
 ### Installation Guide
 
 1.  Clone the repository:
-   Bash:
+   
+Bash
+
     git clone [https://github.com/VaishnavGK/my-gemini-chatbot-project.git](https://github.com/VaishnavGK/my-gemini-chatbot-project.git)
     cd my-gemini-chatbot-project
     
 2.  Install the required dependencies:
    
-Bash:
+Bash
+
     pip install -r requirements.txt
     
 3.  Create an environment file:
@@ -39,7 +42,8 @@ Bash:
 4.  Add your API key:
     Open the .env file and add your Google AI API key as follows:
    
-shell:
+shell
+
     GEMINI_API_KEY="YOUR_API_KEY_HERE"
     
 ---
@@ -47,5 +51,6 @@ shell:
 ## 🚀 Usage
 
 To run the application, execute the following command in your terminal from the project's root directory:
-bash:
+
+`bash
 streamlit run Chatbot_Web.py
