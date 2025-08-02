@@ -27,7 +27,7 @@ def get_gemini_response(model,prompt):
     except Exception as e:
         st.error(f"An error occurred:{e}")
         return None
-
+st.set_page_config(page_title="My Gemini Bot",page_icon="🤖",layout="centered")
 #TITLE
 st.title("🤖 My Personal Gemini Chatbot")
 st.caption("Web Interface for my first Chat bot")
@@ -63,3 +63,4 @@ if user_prompt:
                 st.session_state.chat_history.append({"role":"assistant","content":response_text})
                 with st.chat_message("assistant"):
                     st.markdown(response_text)
+                    
